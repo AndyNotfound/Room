@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&display=swap');
+$dark-gray: hsl(0, 0%, 63%);
+$black: hsl(0, 0%, 0%);
+$white: hsl(0, 0%, 100%);
+$very-dark-gray: hsl(0, 0%, 27%);
+$font-size: 12px;
+$font-family: 'League Spartan', sans-serif;;
+$font-weight: (
+    "thin" : 500,
+    "regular" : 600,
+    "bold" : 700
+);
+$mobile : 375px;
+$desktop : 1440px;
+$mobile-container-width: 90%;
+$desktop-container-width: 80%;
