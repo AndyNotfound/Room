@@ -1,2 +1,54 @@
 @import './variables';
 @import './reset';
+
+@mixin displayFlex ($justifyContent, $alignItems, $flexDirection, $gap) {
+    display: flex;
+    flex-direction: $flexDirection;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+    gap: $gap;
+}
+
+@mixin desktop {
+    @media screen and (min-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin mobileNavigation ($left, $right){
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: $left;
+    right: $right;
+    z-index: 3;
+    height: 70px;
+    padding: 0 2em 0 1em;
+    background-color: $white;
+    transition: ease-out 0.5s;
+}
+
+nav{
+    @include displayFlex(center, center, row, 2em);
+    padding: 0 1em 0 1em;
+    width: 100%;
+    height: 70px;
+    font-family: $font-family;
+
+    .toggleMenu{
+        position: absolute;
+        left: 1em;
+        z-index: 4;
+        background-color: transparent;
+        color: $dark-gray;
+    }
+
+    .navLinks{
+        @include displayFlex(end, center, row, 1em);
+        @include mobileNavigation(100%, 0);
+    }
+    .navLinks.navLinksActive{
+        @include displayFlex(end, center, row, 1em);
+        @include mobileNavigation(0, 0);
+    }
+}
