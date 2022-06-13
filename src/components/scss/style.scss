@@ -26,6 +26,13 @@
     padding: 0 2em 0 1em;
     background-color: $white;
     transition: ease-out 0.5s;
+    @include desktop{
+        width: unset;
+        position: relative;
+        top: unset;
+        left: unset; 
+        background-color: unset;      
+    }
 }
 
 nav{
@@ -33,7 +40,13 @@ nav{
     padding: 0 1em 0 1em;
     width: 100%;
     height: 70px;
+    position: relative;
+    overflow-x: hidden;
     font-family: $font-family;
+    background-color: transparent;
+    @include desktop{
+        @include displayFlex(flex-start, center, row, 2em);
+    }
 
     .toggleMenu{
         position: absolute;
@@ -41,14 +54,18 @@ nav{
         z-index: 4;
         background-color: transparent;
         color: $dark-gray;
+        @include desktop{
+            display: none;
+        }
     }
 
     .navLinks{
         @include displayFlex(end, center, row, 1em);
         @include mobileNavigation(100%, 0);
-    }
-    .navLinks.navLinksActive{
-        @include displayFlex(end, center, row, 1em);
-        @include mobileNavigation(0, 0);
+
+        &.navLinksActive{
+            @include displayFlex(end, center, row, 1em);
+            @include mobileNavigation(0, 0);
+        }
     }
 }

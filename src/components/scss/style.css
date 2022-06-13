@@ -62,7 +62,19 @@ nav {
   padding: 0 1em 0 1em;
   width: 100%;
   height: 70px;
+  position: relative;
+  overflow-x: hidden;
   font-family: "League Spartan", sans-serif;
+  background-color: transparent;
+}
+@media screen and (min-width: 1440px) {
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2em;
+  }
 }
 nav .toggleMenu {
   position: absolute;
@@ -70,6 +82,11 @@ nav .toggleMenu {
   z-index: 4;
   background-color: transparent;
   color: hsl(0deg, 0%, 63%);
+}
+@media screen and (min-width: 1440px) {
+  nav .toggleMenu {
+    display: none;
+  }
 }
 nav .navLinks {
   display: flex;
@@ -88,6 +105,15 @@ nav .navLinks {
   background-color: hsl(0deg, 0%, 100%);
   transition: ease-out 0.5s;
 }
+@media screen and (min-width: 1440px) {
+  nav .navLinks {
+    width: unset;
+    position: relative;
+    top: unset;
+    left: unset;
+    background-color: unset;
+  }
+}
 nav .navLinks.navLinksActive {
   display: flex;
   flex-direction: row;
@@ -104,4 +130,13 @@ nav .navLinks.navLinksActive {
   padding: 0 2em 0 1em;
   background-color: hsl(0deg, 0%, 100%);
   transition: ease-out 0.5s;
+}
+@media screen and (min-width: 1440px) {
+  nav .navLinks.navLinksActive {
+    width: unset;
+    position: relative;
+    top: unset;
+    left: unset;
+    background-color: unset;
+  }
 }/*# sourceMappingURL=style.css.map */
