@@ -3,7 +3,7 @@
 This repository is a challenge from <a href="frontendmentor.io">frontendmentor.io</a> for frontend Developer, in this project I use quite handful of technologies I have been using recently and mixing it out, <a href="#technologies">check it out</a>.
 <br><br>
 In this project I finnaly managed to deploy it to vercel with zero configuration with [Create React App](https://github.com/facebook/create-react-app). You can check the live preview by clicking these green button.
-<br><br><img src="https://img.shields.io/badge/-&nbsp;Click%20for%20Live%20Preview&nbsp;-/brightgreen"><a href="https://room-homepage-5f4bzkszi-andynotfound.vercel.app/"></img>
+<br><br><a href="https://room-homepage-5f4bzkszi-andynotfound.vercel.app/"><img src="https://img.shields.io/badge/-&nbsp;Click%20for%20Live%20Preview&nbsp;-/brightgreen" /></a>
 <br><br>
 
 ![RoomHomePage](https://user-images.githubusercontent.com/40969170/173297915-74fba39b-8f7a-4dc2-a936-9f902ec6ef8b.png)
