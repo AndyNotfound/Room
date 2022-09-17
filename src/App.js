@@ -1,6 +1,7 @@
 import Carousel from "./components/carousel/carousel";
 import Hero from "./components/hero/hero";
 import NavigationBar from "./components/navigationBar/navigationBar";
+import About from "./components/about/about"
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Carousel />
         <Hero />
       </div>
+      <About />
     </div>
   );
 }

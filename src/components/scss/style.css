@@ -32,7 +32,6 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   line-height: 1;
-  box-sizing: border-box;
 }
 
 ol, ul {
@@ -54,6 +53,10 @@ table {
   border-spacing: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 nav {
   display: flex;
   flex-direction: row;
@@ -71,7 +74,10 @@ nav {
 }
 @media screen and (min-width: 1440px) {
   nav {
-    padding: 4em;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 3em 0 0 3em;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -149,9 +155,23 @@ nav .navLinks.navLinksActive {
     background-color: unset;
   }
 }
+nav .navLinks > li > a:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  -webkit-text-decoration-color: hsl(0deg, 0%, 100%);
+          text-decoration-color: hsl(0deg, 0%, 100%);
+  -webkit-text-decoration-style: solid;
+          text-decoration-style: solid;
+}
+
+.paragraph {
+  color: hsl(0deg, 0%, 63%);
+  word-spacing: 1px;
+  line-height: 3ch;
+}
 
 .main {
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -172,6 +192,7 @@ nav .navLinks.navLinksActive {
 .hero {
   width: 100vw;
   padding: 1em 2em;
+  margin-top: 4em;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -182,6 +203,7 @@ nav .navLinks.navLinksActive {
   .hero {
     width: 40vw;
     padding: 1em 6em;
+    margin-top: 0em;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -199,18 +221,13 @@ nav .navLinks.navLinksActive {
     margin-bottom: 0.5em;
   }
 }
-.hero p {
-  color: hsl(0deg, 0%, 63%);
-  word-spacing: 1px;
-  line-height: 2ch;
-}
 .hero .link {
   margin-top: 1em;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  gap: 1.2em;
+  gap: 1em;
 }
 .hero .link > a {
   text-transform: uppercase;
@@ -218,8 +235,15 @@ nav .navLinks.navLinksActive {
   letter-spacing: 6px;
   font-weight: 500;
 }
+.hero .link > a:hover {
+  color: #444444;
+}
 .hero .link > img {
   font-weight: bold;
+}
+.hero .link:hover img {
+  margin-left: 0.5em;
+  transition: all ease-in-out 0.2s;
 }
 
 .swiper {
@@ -247,7 +271,6 @@ nav .navLinks.navLinksActive {
   z-index: 3;
   background-color: black;
   color: hsl(0deg, 0%, 100%);
-  padding: 1em;
   width: 8.5rem;
   height: 3.8rem;
   display: flex;
@@ -260,13 +283,69 @@ nav .navLinks.navLinksActive {
   .swiper .buttonGroup {
     width: 10rem;
     height: 5rem;
-    right: calc(100% - (10rem + 60vw));
+    right: calc(100% - (9.35rem + 60vw));
     bottom: 1px;
   }
 }
 .swiper .buttonGroup .box {
-  width: 50px;
-  height: auto;
+  width: 50%;
+  height: 100%;
+  padding: 1em;
   aspect-ratio: 1;
   background-color: black;
+}
+.swiper .buttonGroup .box:hover {
+  background-color: #444444;
+}
+
+.about {
+  width: 100%;
+  margin-top: 4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 3em;
+}
+@media screen and (min-width: 1440px) {
+  .about {
+    margin-top: 0;
+    padding-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0em;
+  }
+}
+.about h2 {
+  font-size: 1.4em;
+  font-weight: bold;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2ch;
+}
+@media screen and (min-width: 1440px) {
+  .about h2 {
+    padding: 0 4rem;
+  }
+}
+.about p {
+  padding: 1em 2em;
+}
+@media screen and (min-width: 1440px) {
+  .about p {
+    padding: 2em 4em;
+  }
+}
+.about img {
+  width: 99%;
+  height: auto;
+  margin: auto;
+}
+@media screen and (min-width: 1440px) {
+  .about img {
+    width: 600px;
+    height: 400px;
+  }
 }/*# sourceMappingURL=style.css.map */
