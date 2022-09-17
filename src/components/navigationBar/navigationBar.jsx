@@ -13,7 +13,7 @@ function NavigationBar() {
   return (
     <nav id='mainNavigation' className='mainNavigation'>
       <button onClick={toggleHandler} className="toggleMenu">
-        {toggleMenu? <AiOutlineClose /> : <GiHamburgerMenu />}
+        {toggleMenu? <AiOutlineClose className='grayed' /> : <GiHamburgerMenu />}
       </button>
       <img src={logo} alt='Room company logo' className='mainNavigationLogo' />
       <ul className={toggleMenu? 'navLinks navLinksActive' : 'navLinks'}>

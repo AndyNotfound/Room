@@ -32,6 +32,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   line-height: 1;
+  box-sizing: border-box;
 }
 
 ol, ul {
@@ -62,13 +63,15 @@ nav {
   padding: 0 1em 0 1em;
   width: 100%;
   height: 70px;
-  position: relative;
+  position: fixed;
+  z-index: 10;
   overflow-x: hidden;
   font-family: "League Spartan", sans-serif;
   background-color: transparent;
 }
 @media screen and (min-width: 1440px) {
   nav {
+    padding: 4em;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -80,13 +83,17 @@ nav .toggleMenu {
   position: absolute;
   left: 1em;
   z-index: 4;
+  font-size: 25px;
+  color: hsl(0deg, 0%, 100%);
   background-color: transparent;
-  color: hsl(0deg, 0%, 63%);
 }
 @media screen and (min-width: 1440px) {
   nav .toggleMenu {
     display: none;
   }
+}
+nav .toggleMenu .grayed {
+  color: hsl(0deg, 0%, 63%);
 }
 nav .navLinks {
   display: flex;
@@ -94,7 +101,7 @@ nav .navLinks {
   justify-content: end;
   align-items: center;
   gap: 1em;
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 0;
   left: 100%;
@@ -104,6 +111,7 @@ nav .navLinks {
   padding: 0 2em 0 1em;
   background-color: hsl(0deg, 0%, 100%);
   transition: ease-out 0.5s;
+  color: hsl(0deg, 0%, 100%);
 }
 @media screen and (min-width: 1440px) {
   nav .navLinks {
@@ -120,7 +128,7 @@ nav .navLinks.navLinksActive {
   justify-content: end;
   align-items: center;
   gap: 1em;
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
@@ -130,6 +138,7 @@ nav .navLinks.navLinksActive {
   padding: 0 2em 0 1em;
   background-color: hsl(0deg, 0%, 100%);
   transition: ease-out 0.5s;
+  color: black;
 }
 @media screen and (min-width: 1440px) {
   nav .navLinks.navLinksActive {
@@ -139,4 +148,125 @@ nav .navLinks.navLinksActive {
     left: unset;
     background-color: unset;
   }
+}
+
+.main {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1em;
+}
+@media screen and (min-width: 1440px) {
+  .main {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0em;
+    position: relative;
+  }
+}
+
+.hero {
+  width: 100vw;
+  padding: 1em 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1em;
+}
+@media screen and (min-width: 1440px) {
+  .hero {
+    width: 40vw;
+    padding: 1em 6em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1em;
+  }
+}
+.hero h1 {
+  font-size: 2.2em;
+  font-weight: bold;
+}
+@media screen and (min-width: 1440px) {
+  .hero h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+  }
+}
+.hero p {
+  color: hsl(0deg, 0%, 63%);
+  word-spacing: 1px;
+  line-height: 2ch;
+}
+.hero .link {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.2em;
+}
+.hero .link > a {
+  text-transform: uppercase;
+  vertical-align: middle;
+  letter-spacing: 6px;
+  font-weight: 500;
+}
+.hero .link > img {
+  font-weight: bold;
+}
+
+.swiper {
+  width: 100vw;
+  position: relative;
+  z-index: 0;
+}
+@media screen and (min-width: 1440px) {
+  .swiper {
+    position: unset;
+    width: 60vw;
+  }
+}
+.swiper .carouselItem {
+  width: 100%;
+}
+.swiper .carouselItem img {
+  width: 100%;
+  height: auto;
+}
+.swiper .buttonGroup {
+  position: absolute;
+  bottom: 2px;
+  right: 0px;
+  z-index: 3;
+  background-color: black;
+  color: hsl(0deg, 0%, 100%);
+  padding: 1em;
+  width: 8.5rem;
+  height: 3.8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0;
+}
+@media screen and (min-width: 1440px) {
+  .swiper .buttonGroup {
+    width: 10rem;
+    height: 5rem;
+    right: calc(100% - (10rem + 60vw));
+    bottom: 1px;
+  }
+}
+.swiper .buttonGroup .box {
+  width: 50px;
+  height: auto;
+  aspect-ratio: 1;
+  background-color: black;
 }/*# sourceMappingURL=style.css.map */

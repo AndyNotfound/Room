@@ -16,7 +16,7 @@
 }
 
 @mixin mobileNavigation ($left, $right){
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: 0;
     left: $left;
@@ -40,32 +40,135 @@ nav{
     padding: 0 1em 0 1em;
     width: 100%;
     height: 70px;
-    position: relative;
+    position: fixed;
+    z-index: 10;
     overflow-x: hidden;
     font-family: $font-family;
     background-color: transparent;
     @include desktop{
+        padding: 4em;
         @include displayFlex(flex-start, center, row, 2em);
     }
-
+        
     .toggleMenu{
         position: absolute;
         left: 1em;
         z-index: 4;
+        font-size: 25px;
+        color: $white;
         background-color: transparent;
-        color: $dark-gray;
         @include desktop{
             display: none;
+        }
+
+        .grayed{
+            color: $dark-gray;
         }
     }
 
     .navLinks{
         @include displayFlex(end, center, row, 1em);
         @include mobileNavigation(100%, 0);
+        color: $white;
 
         &.navLinksActive{
             @include displayFlex(end, center, row, 1em);
             @include mobileNavigation(0, 0);
+            color: black;
         }
+    }
+}
+
+.main{
+    width: 100vw;
+    @include displayFlex(flex-start, flex-start, column, 1em);
+    @include desktop{
+        @include displayFlex(flex-start, center, row, 0em);
+        position: relative;
+    }
+}
+
+.hero{
+    width: 100vw;
+    padding: 1em 2em;
+    @include displayFlex(flex-start, flex-start, column, 1em);
+    @include desktop{
+        width: 40vw;
+        padding: 1em 6em;
+        @include displayFlex(flex-start, flex-start, column, 1em);
+    }
+
+    h1{
+        font-size: 2.2em;
+        font-weight: bold;
+        @include desktop{
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+    }
+
+    p{
+        color: $dark-gray;
+        word-spacing: 1px;
+        line-height: 2ch;
+    }
+
+    .link{
+        margin-top: 1em;
+        @include displayFlex(flex-start, center, row, 1.2em);
+        & > a{
+            text-transform: uppercase;
+            vertical-align: middle;
+            letter-spacing: 6px;
+            font-weight: 500;
+        }
+        & > img{
+            font-weight: bold;
+        }
+    }
+}
+
+.swiper {
+    width: 100vw;
+    position: relative;
+    z-index: 0;
+    @include desktop{
+        position: unset;
+        width: 60vw;
+    }
+    
+    .carouselItem{
+        width: 100%;
+    }
+
+    .carouselItem img{
+        width: 100%;
+        height: auto;
+    }
+
+    .buttonGroup{
+      position: absolute;
+      bottom: 2px;
+      right: 0px;
+      z-index: 3;
+      background-color: black;
+      color: $white;
+      padding: 1em;
+      width: 8.5rem;
+      height: 3.8rem;
+      @include displayFlex(space-around, center, row, 0);
+      @include desktop{
+        width: 10rem;
+        height: 5rem;
+        right: calc(100% - calc(10rem + 60vw));
+        bottom: 1px;
+      }
+
+      .box{
+        width: 50px;
+        height: auto;
+        aspect-ratio: 1;
+        background-color: black;
+      }
     }
 }
