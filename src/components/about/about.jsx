@@ -7,7 +7,7 @@ export default function About() {
   return (
     <section className="about">
       <img src={darkAbout} />
-      <div>
+      <div className='center'>
         <h2>About our furniture</h2>
         <p className="paragraph">Our multifunctional collection blends design and function to suit your individual taste.
   Make each room unique, or pick a cohesive theme that best express your interests and what

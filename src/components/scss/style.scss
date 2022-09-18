@@ -1,6 +1,11 @@
 @import './variables';
 @import './reset';
 
+*{
+	box-sizing: border-box;
+	font-family: $font-family;
+}
+
 @mixin displayFlex ($justifyContent, $alignItems, $flexDirection, $gap) {
     display: flex;
     flex-direction: $flexDirection;
@@ -35,8 +40,17 @@
     }
 }
 
+.paragraph{
+    color: $dark-gray;
+    word-spacing: 1px;
+    line-height: 3ch;
+}
+
+h1, h2, h3, h4, h5, h6{
+    line-height: 3ch;
+}
+
 nav{
-    @include displayFlex(center, center, row, 2em);
     padding: 0 1em 0 1em;
     width: 100%;
     height: 70px;
@@ -45,12 +59,12 @@ nav{
     overflow-x: hidden;
     font-family: $font-family;
     background-color: transparent;
+    @include displayFlex(center, center, row, 2em);
     @include desktop{
         height: fit-content;
         padding: 3em 0 0 3em;
         @include displayFlex(flex-start, center, row, 2em);
     }
-        
     .toggleMenu{
         position: absolute;
         left: 1em;
@@ -61,177 +75,166 @@ nav{
         @include desktop{
             display: none;
         }
-
         .grayed{
             color: $dark-gray;
         }
     }
-
     .navLinks{
+        color: $white;
         @include displayFlex(end, center, row, 1em);
         @include mobileNavigation(100%, 0);
-        color: $white;
-
         &.navLinksActive{
             @include displayFlex(end, center, row, 1em);
             @include mobileNavigation(0, 0);
             color: black;
+            & > li > a:hover{
+                text-decoration: none;
+            }
         }
-
         & > li > a:hover{
-        text-decoration: underline;
-        text-underline-offset: 5px;
-        text-decoration-color: $white;
-        text-decoration-style: solid;
+            text-decoration: underline;
+            text-underline-offset: 5px;
+            text-decoration-color: $white;
+            text-decoration-style: solid;
         }
     }
 }
 
-.paragraph{
-    color: $dark-gray;
-    word-spacing: 1px;
-    line-height: 3ch;
-}
-
 .main{
     width: 100%;
+    font-family: $font-family;
     @include displayFlex(flex-start, flex-start, column, 1em);
     @include desktop{
         @include displayFlex(flex-start, center, row, 0em);
         position: relative;
     }
-}
-
-.hero{
-    width: 100vw;
-    padding: 1em 2em;
-    margin-top: 4em;
-    @include displayFlex(flex-start, flex-start, column, 1em);
-    @include desktop{
-        width: 40vw;
-        padding: 1em 6em;
-        margin-top: 0em;
+    .hero{
+        width: 100%;
+        padding: 1em 2em;
+        margin-top: 4em;
         @include displayFlex(flex-start, flex-start, column, 1em);
-    }
-
-    h1{
-        font-size: 2.2em;
-        font-weight: bold;
         @include desktop{
-            font-size: 3em;
-            margin-bottom: 0.5em;
+            width: 40%;
+            padding: 1em 6em;
+            margin-top: 0em;
+            @include displayFlex(flex-start, flex-start, column, 0em);
         }
-    }
-
-
-    .link{
-        margin-top: 1em;
-        @include displayFlex(flex-start, center, row, 1em);
-        & > a{
-            text-transform: uppercase;
-            vertical-align: middle;
-            letter-spacing: 6px;
-            font-weight: 500;
-            &:hover{
-                color: #444444;
-            }
-        }
-        & > img{
+        h1{
+            line-height: 1;
+            font-size: 2.2em;
             font-weight: bold;
+            @include desktop{
+                font-size: 3em;
+                margin-bottom: 0.5em;
+            }
         }
-        &:hover{
-            img{
-                margin-left: 0.5em;
-                transition: all ease-in-out 0.2s;
+        .link{
+            margin-top: 1em;
+            @include displayFlex(flex-start, center, row, 1em);
+            & > a{
+                text-transform: uppercase;
+                vertical-align: middle;
+                letter-spacing: 6px;
+                font-weight: 500;
+                &:hover{
+                    color: #444444;
+                }
+            }
+            & > img{
+                font-weight: bold;
+            }
+            &:hover{
+                img{
+                    margin-left: 0.5em;
+                    transition: all ease-in-out 0.2s;
+                }
             }
         }
     }
-}
-
-.swiper {
-    width: 100vw;
-    position: relative;
-    z-index: 0;
-    @include desktop{
-        position: unset;
-        width: 60vw;
-    }
-    
-    .carouselItem{
+    .swiper {
         width: 100%;
-    }
-
-    .carouselItem img{
-        width: 100%;
-        height: auto;
-    }
-
-    .buttonGroup{
-      position: absolute;
-      bottom: 2px;
-      right: 0px;
-      z-index: 3;
-      background-color: black;
-      color: $white;
-      width: 8.5rem;
-      height: 3.8rem;
-      @include displayFlex(space-around, center, row, 0);
-      @include desktop{
-        width: 10rem;
-        height: 5rem;
-        right: calc(100% - calc(9.35rem + 60vw));
-        bottom: 1px;
-      }
-
-      
-      .box{
-          width: 50%;
-          height: 100%;
-          padding: 1em;
-          aspect-ratio: 1;
+        position: relative;
+        z-index: 0;
+        @include desktop{
+            position: unset;
+            width: 60%;
+        }
+        .carouselItem{
+            width: 100%;
+            & img{
+                width: 100%;
+                height: auto;
+            }
+        }
+        .buttonGroup{
+          position: absolute;
+          bottom: 0px;
+          right: 0px;
+          z-index: 3;
           background-color: black;
-          &:hover{
-            background-color: #444444;
+          color: $white;
+          width: 8.5rem;
+          height: 3.8rem;
+          @include displayFlex(space-around, center, row, 0);
+          @include desktop{
+            width: 10rem;
+            height: 5rem;
+            right: calc(100% - calc(10em + 60%));
+            bottom: 0;
           }
-      }
+          .box{
+              width: 50%;
+              height: 100%;
+              padding: 1em;
+              aspect-ratio: 1;
+              background-color: black;
+              &:hover{
+                background-color: #444444;
+              }
+          }
+        }
     }
 }
 
 .about{
     width: 100%;
     margin-top: 4em;
+    font-family: $font-family;
     @include displayFlex(flex-start, flex-start, column, 3em);
     @include desktop{
         margin-top: 0;
         padding-top: 0;
         @include displayFlex(flex-start, center, row, 0em);
     }
-
-    h2{
-        font-size: 1.4em;
-        font-weight: bold;
-        padding: 0 2rem;
-        text-transform: uppercase;
-        letter-spacing: 0.2ch;
+    .center{
+        padding: 1em 2.5em;
+        @include displayFlex(flex-start, flex-start, column, 1em);
         @include desktop{
-            padding: 0 4rem;
+            @include displayFlex(space-around, flex-start, column, 1em);
+        }
+        h2{
+            font-size: 1.4em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.2ch;
+            @include desktop{
+            }
+        }
+        p{
+            @include desktop{
+                max-height: 400px;
+                text-overflow: ellipsis;
+            }
         }
     }
-
-    p{
-        padding: 1em 2em;
-        @include desktop{
-            padding: 2em 4em;
-        }
-    }
-
     img{
         width: 99%;
         height: auto;
         margin: auto;
         @include desktop{
-            width: 600px;
+            min-width: 35%;
             height: 400px;
+            max-height: 900px;
         }
     }
 }
