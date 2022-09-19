@@ -104,8 +104,53 @@ nav{
 .main{
     width: 100%;
     font-family: $font-family;
+    @include displayFlex(flex-start, flex-start, column, 1em);
     @include desktop{
+        @include displayFlex(flex-start, center, row, 0em);
         position: relative;
+    }
+    .hero{
+        width: 100%;
+        padding: 1em 2em;
+        margin-top: 4em;
+        @include displayFlex(flex-start, flex-start, column, 1em);
+        @include desktop{
+            width: 40%;
+            padding: 1em 4em;
+            margin-top: 0em;
+            @include displayFlex(flex-start, flex-start, column, 0em);
+        }
+        h1{
+            line-height: 1;
+            font-size: 2.2em;
+            font-weight: 600;
+            @include desktop{
+                font-size: 3em;
+                margin-bottom: 0.5em;
+            }
+        }
+        .link{
+            margin-top: 1em;
+            @include displayFlex(flex-start, center, row, 1em);
+            & > a{
+                text-transform: uppercase;
+                vertical-align: middle;
+                letter-spacing: 6px;
+                font-weight: 500;
+                &:hover{
+                    color: #444444;
+                }
+            }
+            & > img{
+                font-weight: bold;
+            }
+            &:hover{
+                img{
+                    margin-left: 0.5em;
+                    transition: all ease-in-out 0.2s;
+                }
+            }
+        }
     }
     .swiper {
         width: 100%;
@@ -113,69 +158,18 @@ nav{
         z-index: 0;
         @include desktop{
             position: unset;
-            width: 100%;
+            width: 60%;
         }
         .carouselItem{
             width: 100%;
-            @include displayFlex(flex-start, center, column, 0);
-            @include desktop{
-                @include displayFlex(space-between, center, row, 0)
-            }
             & img{
                 width: 100%;
-                height: 500px;
-                @include displayFlex(space-between, center, row, 0);
-                @include desktop{
-                    width: 60%;
-                    height: auto;
-                }
-            }
-            .hero{
-                width: 100%;
-                margin-top: 4em;
-                padding: 1em 2.5em;
-                @include desktop{
-                    margin-top: 0;
-                    width: 40%;
-                    padding: 1em 4em;
-                }
-                h1{
-                    line-height: 1;
-                    font-size: 2.2em;
-                    font-weight: 600;
-                    @include desktop{
-                        font-size: 3em;
-                        margin-bottom: 0.5em;
-                    }
-                }
-                .link{
-                    margin-top: 1em;
-                    @include displayFlex(flex-start, center, row, 1em);
-                    & > a{
-                        text-transform: uppercase;
-                        vertical-align: middle;
-                        letter-spacing: 6px;
-                        font-weight: 500;
-                        &:hover{
-                            color: #444444;
-                        }
-                    }
-                    & > img{
-                        width: 40px;
-                        height: auto;
-                    }
-                    &:hover{
-                        & > img{
-                            margin-left: 8px;
-                            transition: all ease-in-out 0.2s;
-                        }
-                    }
-                }
+                height: auto;
             }
         }
         .buttonGroup{
           position: absolute;
-          bottom: calc(100% - 500px);
+          bottom: 0px;
           right: 0px;
           z-index: 3;
           background-color: black;

@@ -88,7 +88,7 @@ nav {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    padding: 3em 0 0 3em;
+    padding: 2em 0 0 3em;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -113,6 +113,7 @@ nav .toggleMenu .grayed {
   color: hsl(0deg, 0%, 63%);
 }
 nav .navLinks {
+  background-color: transparent;
   color: hsl(0deg, 0%, 100%);
   display: flex;
   flex-direction: row;
@@ -181,78 +182,11 @@ nav .navLinks > li > a:hover {
 .main {
   width: 100%;
   font-family: "League Spartan", sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 1em;
 }
 @media screen and (min-width: 1440px) {
   .main {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0em;
     position: relative;
   }
-}
-.main .hero {
-  width: 100%;
-  padding: 1em 2em;
-  margin-top: 4em;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 1em;
-}
-@media screen and (min-width: 1440px) {
-  .main .hero {
-    width: 40%;
-    padding: 1em 6em;
-    margin-top: 0em;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 0em;
-  }
-}
-.main .hero h1 {
-  line-height: 1;
-  font-size: 2.2em;
-  font-weight: bold;
-}
-@media screen and (min-width: 1440px) {
-  .main .hero h1 {
-    font-size: 3em;
-    margin-bottom: 0.5em;
-  }
-}
-.main .hero .link {
-  margin-top: 1em;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 1em;
-}
-.main .hero .link > a {
-  text-transform: uppercase;
-  vertical-align: middle;
-  letter-spacing: 6px;
-  font-weight: 500;
-}
-.main .hero .link > a:hover {
-  color: #444444;
-}
-.main .hero .link > img {
-  font-weight: bold;
-}
-.main .hero .link:hover img {
-  margin-left: 0.5em;
-  transition: all ease-in-out 0.2s;
 }
 .main .swiper {
   width: 100%;
@@ -262,19 +196,92 @@ nav .navLinks > li > a:hover {
 @media screen and (min-width: 1440px) {
   .main .swiper {
     position: unset;
-    width: 60%;
+    width: 100%;
   }
 }
 .main .swiper .carouselItem {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0;
+}
+@media screen and (min-width: 1440px) {
+  .main .swiper .carouselItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+  }
 }
 .main .swiper .carouselItem img {
   width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+}
+@media screen and (min-width: 1440px) {
+  .main .swiper .carouselItem img {
+    width: 60%;
+    height: auto;
+  }
+}
+.main .swiper .carouselItem .hero {
+  width: 100%;
+  margin-top: 4em;
+  padding: 1em 2.5em;
+}
+@media screen and (min-width: 1440px) {
+  .main .swiper .carouselItem .hero {
+    margin-top: 0;
+    width: 40%;
+    padding: 1em 4em;
+  }
+}
+.main .swiper .carouselItem .hero h1 {
+  line-height: 1;
+  font-size: 2.2em;
+  font-weight: 600;
+}
+@media screen and (min-width: 1440px) {
+  .main .swiper .carouselItem .hero h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+  }
+}
+.main .swiper .carouselItem .hero .link {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1em;
+}
+.main .swiper .carouselItem .hero .link > a {
+  text-transform: uppercase;
+  vertical-align: middle;
+  letter-spacing: 6px;
+  font-weight: 500;
+}
+.main .swiper .carouselItem .hero .link > a:hover {
+  color: #444444;
+}
+.main .swiper .carouselItem .hero .link > img {
+  width: 40px;
   height: auto;
+}
+.main .swiper .carouselItem .hero .link:hover > img {
+  margin-left: 8px;
+  transition: all ease-in-out 0.2s;
 }
 .main .swiper .buttonGroup {
   position: absolute;
-  bottom: 0px;
+  bottom: calc(100% - 500px);
   right: 0px;
   z-index: 3;
   background-color: black;
@@ -363,7 +370,7 @@ nav .navLinks > li > a:hover {
 }
 @media screen and (min-width: 1440px) {
   .about img {
-    min-width: 35%;
+    min-width: 30%;
     height: 400px;
     max-height: 900px;
   }
